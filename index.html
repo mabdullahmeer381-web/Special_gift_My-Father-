@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Dad ❤️</title>
+    <title>For My Father ❤️</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-        body { background-color: #020617; color: white; margin: 0; overflow-x: hidden; }
+        
+        body { background-color: #000; color: white; margin: 0; overflow-x: hidden; }
         .font-love { font-family: 'Dancing Script', cursive; }
         .hidden { display: none; }
-        .warning-flash { animation: flash 0.5s infinite; }
-        @keyframes flash {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
+        
+        /* The Dot Grid Background from the video */
+        .dot-bg { 
+            background-image: radial-gradient(#222 1px, transparent 1px); 
+            background-size: 25px 25px; 
+        }
+
+        /* Blue Glow for Dad's Theme */
+        .blue-glow { text-shadow: 0 0 15px rgba(59, 130, 246, 0.8); }
+
+        /* Flashing Warning Animation */
+        .warning-flash {
+            animation: flash-border 0.5s infinite alternate;
+        }
+        @keyframes flash-border {
+            from { border-color: #ef4444; box-shadow: 0 0 10px #ef4444; }
+            to { border-color: #7f1d1d; box-shadow: 0 0 20px #7f1d1d; }
         }
     </style>
 </head>
-<body class="bg-slate-950 text-white">
+<body class="dot-bg">
 
     <audio id="bgMusic" loop>
         <source src="music.mp3" type="audio/mpeg">
@@ -28,86 +41,99 @@
         
         <div id="screen1">
             <img src="https://media.tenor.com/796I7I4ERAAAAAi/bears-hug.gif" class="w-32 h-32 mx-auto mb-6">
-            <h1 class="text-4xl font-love text-blue-400 mb-8">Hi Dad! ❤️</h1>
-            <button onclick="startApp()" class="bg-blue-600 px-10 py-4 rounded-full font-bold shadow-xl">Open My Heart</button>
+            <h1 class="text-5xl font-love text-blue-400 mb-8 blue-glow">Hi Dad!</h1>
+            <button onclick="startApp()" class="bg-blue-600 px-12 py-4 rounded-full font-bold shadow-lg active:scale-95 transition-all">
+                Open My Heart ❤️
+            </button>
         </div>
 
         <div id="screen2" class="hidden w-full max-w-xs">
-            <h2 class="text-xl mb-6 uppercase text-blue-300 tracking-widest">Analyzing Love Level...</h2>
-            <div class="w-full bg-gray-900 h-5 rounded-full overflow-hidden border border-white/10">
-                <div id="bar" style="width: 0%" class="bg-blue-500 h-full"></div>
+            <h2 class="text-xl mb-6 tracking-widest uppercase text-blue-300">Measuring Love Level...</h2>
+            <div class="w-full bg-gray-900 h-5 rounded-full border border-white/10 overflow-hidden shadow-inner">
+                <div id="bar" style="width: 0%" class="bg-gradient-to-r from-blue-600 to-cyan-400 h-full transition-all duration-75"></div>
             </div>
-            <p id="percent" class="mt-6 text-6xl font-mono text-blue-500">0%</p>
+            <p id="percent" class="mt-6 text-6xl font-mono text-blue-500 blue-glow">0%</p>
         </div>
 
         <div id="warningScreen" class="hidden">
             <div class="p-8 border-4 border-red-600 rounded-3xl bg-red-950/20 warning-flash">
                 <h2 class="text-4xl font-bold text-red-500 mb-4">⚠️ WARNING ⚠️</h2>
                 <p class="text-2xl text-white font-bold uppercase">Extreme Love Detected!</p>
-                <p class="text-lg text-red-300 mt-2">Level: 120% (Maximum Safety Exceeded)</p>
+                <p class="text-lg text-red-300 mt-2 font-mono">LEVEL: 120% (OVERLOAD)</p>
             </div>
         </div>
 
         <div id="screen3" class="hidden w-full max-w-md space-y-4">
-            <h2 class="text-4xl font-love text-blue-300 mb-6">The Best Dad Ever! ❤️</h2>
-            <div onclick="reveal(this)" class="p-4 bg-white/5 border border-blue-500/30 rounded-xl cursor-pointer">
-                <span>Note #1 🎁</span>
-                <p class="hidden text-xl font-love">A father is someone you look up to, no matter how tall you grow.</p>
+            <h2 class="text-4xl font-love text-blue-300 mb-8 blue-glow">The Best Dad Ever! ❤️</h2>
+            
+            <div onclick="reveal(this)" class="p-5 bg-white/5 border border-blue-500/30 rounded-2xl cursor-pointer">
+                <span class="text-blue-200">Quote #1 🎁</span>
+                <p class="hidden text-xl font-love">"A father is someone you look up to, no matter how tall you grow."</p>
             </div>
-            <div onclick="reveal(this)" class="p-4 bg-white/5 border border-blue-500/30 rounded-xl cursor-pointer">
-                <span>Note #2 🎁</span>
-                <p class="hidden text-xl font-love">The greatest legacy a father can leave is his children.</p>
+
+            <div onclick="reveal(this)" class="p-5 bg-white/5 border border-blue-500/30 rounded-2xl cursor-pointer">
+                <span class="text-blue-200">Quote #2 🎁</span>
+                <p class="hidden text-xl font-love">"The greatest legacy a father can leave is his children's character."</p>
             </div>
-            <div onclick="reveal(this)" class="p-4 bg-white/5 border border-blue-500/30 rounded-xl cursor-pointer">
-                <span>Note #3 🎁</span>
-                <p class="hidden text-xl font-love">You are my hero and my guiding light.</p>
+
+            <div onclick="reveal(this)" class="p-5 bg-white/5 border border-blue-500/30 rounded-2xl cursor-pointer">
+                <span class="text-blue-200">Quote #3 🎁</span>
+                <p class="hidden text-xl font-love">"You are my hero and my guiding light in everything I do."</p>
             </div>
-            <div onclick="reveal(this)" class="p-4 bg-white/5 border border-blue-500/30 rounded-xl cursor-pointer">
-                <span>Note #4 🎁</span>
-                <p class="hidden text-xl font-love">Behind every great person is an amazing dad.</p>
+
+            <div onclick="reveal(this)" class="p-5 bg-white/5 border border-blue-500/30 rounded-2xl cursor-pointer">
+                <span class="text-blue-200">Quote #4 🎁</span>
+                <p class="hidden text-xl font-love">"Behind every great person is an amazing father."</p>
             </div>
-            <div onclick="reveal(this)" class="p-4 bg-blue-900/40 border border-blue-500 rounded-xl cursor-pointer">
-                <span class="font-bold">The Last Message 💝</span>
-                <p class="hidden text-2xl font-love text-blue-300">I love you more than words can say, Dad!</p>
+
+            <div onclick="reveal(this)" class="p-6 bg-blue-900/40 border border-blue-500 rounded-2xl cursor-pointer shadow-lg">
+                <span class="text-blue-100 font-bold">The Final Message 💝</span>
+                <p class="hidden text-2xl font-love text-blue-300 italic">"Thank you for everything, Dad. I love you more than words can say!"</p>
             </div>
         </div>
-
     </div>
 
     <script>
         function startApp() {
-            document.getElementById('bgMusic').play();
+            // Play Music
+            const music = document.getElementById('bgMusic');
+            music.play();
+            
+            // Switch Screens
             document.getElementById('screen1').style.display = 'none';
             document.getElementById('screen2').style.display = 'block';
-
+            
             let w = 0;
             const bar = document.getElementById('bar');
             const percent = document.getElementById('percent');
             
             const timer = setInterval(() => {
                 w++;
-                if (w <= 100) bar.style.width = w + '%';
+                // Progress Bar stops at 100% width
+                if(w <= 100) bar.style.width = w + '%'; 
+                // Number keeps going to 120%
                 percent.innerText = w + '%';
 
                 if (w >= 120) {
                     clearInterval(timer);
-                    // Show the Warning
+                    
+                    // Show Warning Screen
                     document.getElementById('screen2').style.display = 'none';
                     document.getElementById('warningScreen').style.display = 'block';
-                    
-                    // Wait 3 seconds, then show final messages
+
+                    // Wait 3 seconds then show the 5 notes
                     setTimeout(() => {
                         document.getElementById('warningScreen').style.display = 'none';
                         document.getElementById('screen3').style.display = 'block';
                     }, 3000);
                 }
-            }, 50);
+            }, 60);
         }
 
         function reveal(el) {
             el.children[0].classList.add('hidden');
             el.children[1].classList.remove('hidden');
-            el.classList.add('bg-blue-600/20', 'border-blue-500');
+            el.classList.add('bg-blue-600/20', 'border-blue-400', 'scale-105');
         }
     </script>
 </body>
