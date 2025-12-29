@@ -3,28 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Father</title>
+    <title>For My Father ❤️</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Using standard system fonts for maximum compatibility */
-        body { 
-            background-color: #020617; 
-            color: white; 
-            margin: 0; 
-            font-family: Arial, sans-serif; 
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        body { background-color: #020617; color: white; margin: 0; overflow-x: hidden; }
+        .font-love { font-family: 'Dancing Script', cursive; }
         .hidden { display: none; }
+        .blue-glow { text-shadow: 0 0 15px rgba(59, 130, 246, 0.8); }
+        .dot-bg { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 25px 25px; }
         
-        /* Flashing effect for the warning */
-        .flash {
-            animation: blinker 0.6s linear infinite;
-        }
-        @keyframes blinker {
-            50% { opacity: 0; }
+        /* Flashing Animation for the Warning */
+        .warning-flash { animation: flash 0.6s infinite; }
+        @keyframes flash {
+            0% { opacity: 1; border-color: #ef4444; }
+            50% { opacity: 0.5; border-color: #7f1d1d; }
+            100% { opacity: 1; border-color: #ef4444; }
         }
     </style>
 </head>
-<body class="bg-slate-950">
+<body class="dot-bg">
 
     <audio id="bgMusic" loop>
         <source src="music.mp3" type="audio/mpeg">
@@ -33,92 +31,81 @@
     <div class="flex flex-col items-center justify-center min-h-screen p-6 text-center">
         
         <div id="screen1">
-            <h1 class="text-3xl font-bold text-blue-400 mb-8 uppercase tracking-widest">Hi Dad</h1>
-            <button onclick="startApp()" class="bg-blue-600 px-12 py-5 rounded-lg font-black text-xl shadow-2xl active:scale-95">
-                CLICK TO START
-            </button>
+            <img src="https://media.tenor.com/796I7I4ERAAAAAi/bears-hug.gif" class="w-32 h-32 mx-auto mb-6">
+            <h1 class="text-5xl font-love text-blue-400 mb-8 blue-glow">Hi Dad!</h1>
+            <button onclick="startApp()" class="bg-blue-600 px-12 py-4 rounded-full font-bold shadow-xl active:scale-95 transition-all">Open My Heart ❤️</button>
         </div>
 
         <div id="screen2" class="hidden w-full max-w-xs">
-            <h2 class="text-lg mb-6 font-bold uppercase tracking-widest text-blue-200">Measuring Love Level</h2>
-            <div class="w-full bg-slate-800 h-8 rounded border-2 border-blue-500 overflow-hidden">
-                <div id="bar" style="width: 0%" class="bg-blue-500 h-full"></div>
+            <h2 class="text-xl mb-6 tracking-widest uppercase text-blue-300">Measuring Love Level...</h2>
+            <div class="w-full bg-gray-900 h-5 rounded-full border border-white/10 overflow-hidden shadow-inner">
+                <div id="bar" class="bg-gradient-to-r from-blue-600 to-cyan-400 h-full w-0"></div>
             </div>
-            <p id="percent" class="mt-6 text-7xl font-bold text-white">0%</p>
+            <p id="percent" class="mt-6 text-6xl font-mono text-blue-500 blue-glow">0%</p>
         </div>
 
         <div id="warningScreen" class="hidden">
-            <div class="p-10 border-8 border-red-600 rounded-lg bg-red-950">
-                <h2 class="text-5xl font-black text-red-500 mb-4 flash">!!! WARNING !!!</h2>
-                <p class="text-2xl font-bold text-white mb-2">EXTREME LOVE DETECTED</p>
-                <p class="text-xl text-red-200">SAFETY LIMIT: 120% EXCEEDED</p>
+            <div class="p-8 border-4 border-red-600 rounded-3xl bg-red-950/20 warning-flash">
+                <h2 class="text-4xl font-bold text-red-500 mb-4">⚠️ WARNING ⚠️</h2>
+                <p class="text-2xl text-white font-bold uppercase">Extreme Love Detected!</p>
+                <p class="text-lg text-red-300 mt-2 font-mono">CRITICAL LEVEL: 120%</p>
             </div>
         </div>
 
         <div id="screen3" class="hidden w-full max-w-md space-y-4">
-            <h2 class="text-3xl font-bold text-blue-400 mb-8 uppercase">Dad, You are the best</h2>
+            <h2 class="text-4xl font-love text-blue-300 mb-8 blue-glow">The Best Dad Ever! ❤️</h2>
             
-            <div onclick="reveal(this)" class="p-6 bg-slate-900 border-2 border-blue-900 rounded-lg cursor-pointer">
-                <span class="font-bold text-blue-400 text-lg uppercase">Note #1 (Click)</span>
-                <p class="hidden text-xl font-bold leading-relaxed">A father is someone you look up to, no matter how tall you grow.</p>
+            <div onclick="reveal(this)" class="p-5 bg-white/5 border border-blue-500/30 rounded-2xl cursor-pointer">
+                <span class="text-blue-200">Quote #1 🎁</span>
+                <p class="hidden text-xl font-love text-white italic">"A father is someone you look up to, no matter how tall you grow."</p>
             </div>
 
-            <div onclick="reveal(this)" class="p-6 bg-slate-900 border-2 border-blue-900 rounded-lg cursor-pointer">
-                <span class="font-bold text-blue-400 text-lg uppercase">Note #2 (Click)</span>
-                <p class="hidden text-xl font-bold leading-relaxed">The greatest legacy a father can leave is the time spent with his children.</p>
+            <div onclick="reveal(this)" class="p-5 bg-white/5 border border-blue-500/30 rounded-2xl cursor-pointer">
+                <span class="text-blue-200">Quote #2 🎁</span>
+                <p class="hidden text-xl font-love text-white italic">"The greatest legacy a father can leave is the time spent with his children."</p>
             </div>
 
-            <div onclick="reveal(this)" class="p-6 bg-slate-900 border-2 border-blue-900 rounded-lg cursor-pointer">
-                <span class="font-bold text-blue-400 text-lg uppercase">Note #3 (Click)</span>
-                <p class="hidden text-xl font-bold leading-relaxed">You are my hero and my guiding light in everything I do.</p>
+            <div onclick="reveal(this)" class="p-5 bg-white/5 border border-blue-500/30 rounded-2xl cursor-pointer">
+                <span class="text-blue-200">Quote #3 🎁</span>
+                <p class="hidden text-xl font-love text-white italic">"You are my hero and my guiding light in everything I do."</p>
             </div>
 
-            <div onclick="reveal(this)" class="p-6 bg-slate-900 border-2 border-blue-900 rounded-lg cursor-pointer">
-                <span class="font-bold text-blue-400 text-lg uppercase">Note #4 (Click)</span>
-                <p class="hidden text-xl font-bold leading-relaxed">Behind every great person is an amazing father. Thank you for being mine.</p>
+            <div onclick="reveal(this)" class="p-5 bg-white/5 border border-blue-500/30 rounded-2xl cursor-pointer">
+                <span class="text-blue-200">Quote #4 🎁</span>
+                <p class="hidden text-xl font-love text-white italic">"Behind every great person is an amazing father."</p>
             </div>
 
-            <div onclick="reveal(this)" class="p-8 bg-blue-600 border-2 border-white rounded-lg cursor-pointer">
-                <span class="font-bold text-white text-lg uppercase tracking-tighter">The Final Message (Click)</span>
-                <p class="hidden text-2xl font-black text-white leading-tight uppercase">I love you more than words can say, Dad!</p>
+            <div onclick="reveal(this)" class="p-6 bg-blue-900/40 border border-blue-500 rounded-2xl cursor-pointer shadow-lg">
+                <span class="text-blue-100 font-bold">The Final Message 💝</span>
+                <p class="hidden text-2xl font-love text-blue-300">"Thank you for everything, Dad. I love you more than words can say!"</p>
             </div>
         </div>
-
     </div>
 
     <script>
         function startApp() {
-            // Start Music
             const music = document.getElementById('bgMusic');
             music.play();
-
-            // Transition
+            
             document.getElementById('screen1').style.display = 'none';
             document.getElementById('screen2').style.display = 'block';
-
-            let progress = 0;
+            
+            let w = 0;
             const bar = document.getElementById('bar');
-            const percentDisplay = document.getElementById('percent');
-
+            const percent = document.getElementById('percent');
+            
             const timer = setInterval(() => {
-                progress++;
-                
-                // Update Bar (Stops visually at 100)
-                if (progress <= 100) {
-                    bar.style.width = progress + '%';
-                }
-                
-                // Update Text (Goes to 120)
-                percentDisplay.innerText = progress + '%';
+                w++;
+                if(w <= 100) bar.style.width = w + '%'; 
+                percent.innerText = w + '%';
 
-                if (progress >= 120) {
+                if (w >= 120) {
                     clearInterval(timer);
-                    
-                    // Show Warning Screen
+                    // Hide meter, show Warning
                     document.getElementById('screen2').style.display = 'none';
                     document.getElementById('warningScreen').style.display = 'block';
 
-                    // Wait 3 seconds, then show notes
+                    // Wait 3 seconds then show the 5 notes
                     setTimeout(() => {
                         document.getElementById('warningScreen').style.display = 'none';
                         document.getElementById('screen3').style.display = 'block';
@@ -130,8 +117,7 @@
         function reveal(el) {
             el.children[0].classList.add('hidden');
             el.children[1].classList.remove('hidden');
-            el.classList.add('bg-blue-900');
-            el.style.borderColor = "#3b82f6";
+            el.classList.add('bg-blue-600/20', 'border-blue-400', 'scale-105');
         }
     </script>
 </body>
